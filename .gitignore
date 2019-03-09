@@ -30,3 +30,7 @@ hs_err_pid*
 # Apple file #
 .DS_Store
 .tern-project
+
+# IDEA
+.idea
+*.iml
