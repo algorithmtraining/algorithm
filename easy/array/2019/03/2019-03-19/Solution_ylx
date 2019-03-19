@@ -1,0 +1,15 @@
+class Solution:
+    def generate(self, numRows: int) -> List[List[int]]:
+        l1 = [1]
+        l2 = []
+        while numRows > 0:
+            l2.append(l1)
+            l1 = [sum(t) for t in zip([0] + l1, l1 + [0])]
+            numRows -= 1
+        return l2
+    
+    """
+    zip([0,1],[1,0]): [[0,1],[1,0]]
+    zip([0,1,1],[1,1,0]): [[0,1],[1,1],[1,0]]
+    zip([0,1,2,1],[1,2,1,0]): [[0,1],[1,2],[2,1],[1,0]]
+    """
