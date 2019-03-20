@@ -1,7 +1,7 @@
 class Solution {
     public List<Integer> getRow(int rowIndex) {
-        List<Integer> arr1 = new ArrayList<>();
-        List<Integer> temp = new ArrayList<>();       
+        List<Integer> arr1 = new ArrayList<>();   // 第一行
+        List<Integer> temp = new ArrayList<>();   //保留当前行，为计算下一行做准备    
         if(rowIndex == 0)
         {
              arr1.add(1);
@@ -9,9 +9,9 @@ class Solution {
             return arr1 ;
         }       
       
-        for(int i = 2 ; i < rowIndex +2 ; i++)
+        for(int i = 1; i < rowIndex +2 ; i++)
         {  
-            List<Integer> nowarr = new ArrayList<>();
+            List<Integer> nowarr = new ArrayList<>(); //接收当前行元素
             
             for(int j = 0; j < i;j++)
             {
