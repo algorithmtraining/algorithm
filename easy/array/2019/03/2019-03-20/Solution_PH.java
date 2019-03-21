@@ -29,3 +29,31 @@ class Solution {
         return temp;
     }
 }
+//仿照于姓大佬的写法
+class Solution {
+    public List<Integer> getRow(int rowIndex) {
+        List<Integer> arr = new ArrayList<>();
+       int init = 1;
+        int temp = init;
+        for(int i =0;i <= rowIndex;i++ )
+        {
+            if(i==0)
+            {
+                arr.add(1);
+            }
+            for(int j =1;j<=i;j++)
+            {
+                if(j==i)
+                {
+                    arr.add(1);
+                }
+                else{
+                    temp = arr.get(j);
+                    arr.set(j, temp+init);
+                    init = temp; 
+                }
+            }
+        }
+        return arr;
+    }
+}
