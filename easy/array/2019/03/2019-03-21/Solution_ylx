@@ -1,0 +1,14 @@
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        #找到最小值后最大的值
+
+        max_pro = 0 
+        min_num = 99999
+        lens = len(prices)
+        for i in range(lens):
+            if prices[i] < min_num:
+                min_num = prices[i]
+            elif prices[i] - min_num > max_pro:
+                max_pro = prices[i] - min_num
+        return max_pro
+       
