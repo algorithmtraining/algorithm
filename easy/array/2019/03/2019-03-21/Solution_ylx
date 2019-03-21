@@ -1,6 +1,6 @@
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        #找到最小值后最大的值
+        #找到低谷后的峰值，比较最大利润
 
         max_pro = 0 
         min_num = 99999
