@@ -1,0 +1,23 @@
+public class problem122 {
+	public static void main(String[] args) {
+		problem122 p = new problem122();
+		int[]a= new int[]{1,2,3,4,5};
+		System.out.println(p.profitProfit(a));
+	}
+	public int profitProfit(int[]prices) {
+		if (prices.length==0) {
+			return 0;			
+		}
+		int profit=0;
+		int sofaMin=prices[0];
+		for (int i = 0; i < prices.length; i++) {
+			if (prices[i]>sofaMin) {
+				profit=profit+prices[i]-sofaMin;
+				sofaMin=prices[i];
+			}else {
+				sofaMin=prices[i];
+			}
+		}
+		return profit;
+	}
+}
