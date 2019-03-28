@@ -1,0 +1,15 @@
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        """字典的key不重复性
+        map = {}
+        for i,num in enumerate(nums):
+            if num not in map:
+                map[num] = 1
+            else:
+                return True
+        return False
+        """
+        #集合
+        a = len(nums)
+        b = len(set(nums))
+        return True if b < a else False
