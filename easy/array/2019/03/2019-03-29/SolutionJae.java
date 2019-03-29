@@ -1,4 +1,20 @@
 public class SolutionJae{
+    public boolean containsNearbyDuplicate3(int[] nums, int k) {
+       Set<Integer> set = new HashSet<>();
+       for (int i = 0; i < nums.length; i++){
+           // 滑动窗口
+           if (i > k){
+               set.remove(nums[i-k-1]);
+           }
+           // 添加已存在的元素会返回false，且在窗口内
+           if (!set.add(nums[i])){
+               return true;
+           }
+       }
+
+       return false;
+   }
+
     public boolean containsNearbyDuplicate2(int[] nums, int k) {
         Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++){
