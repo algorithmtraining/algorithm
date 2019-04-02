@@ -1,0 +1,15 @@
+public class problem268 {
+	public static void main(String[] args) {
+		problem268 p = new problem268();
+		int[]a= {3,0,1};
+		System.out.println(p.missingNumber(a));
+	}
+	public int missingNumber(int[] nums) {
+		int len=nums.length+1;
+		int sum=(0+len-1)*len/2;
+		for (int i = 0; i < nums.length; i++) {
+			sum=sum-nums[i];
+		}
+		return sum;
+	}
+}
