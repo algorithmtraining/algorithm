@@ -1,0 +1,14 @@
+class Solution {
+    public int rob(int[] nums) {
+        if(nums.length == 0) return 0;
+        if(nums.length == 1) return nums[0];
+        if(nums.length == 2) return Math.max(nums[0],nums[1]);
+        int[] maximum = new int[nums.length];
+        maximum[0] = nums[0];
+        maximum[1] = Math.max(nums[0],nums[1]);
+        for(int i = 2;i < nums.length;i++){
+            maximum[i] = Math.max(nums[i]+maximum[i-2],maximum[i-1]);
+        }
+        return maximum[nums.length-1];
+    }
+}
