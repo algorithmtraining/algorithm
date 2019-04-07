@@ -1,0 +1,32 @@
+class Solution:
+    """1.排序集合做法，但时间复杂度不符合要求
+    def thirdMax(self, nums: List[int]) -> int:
+        s = sorted(set(nums))
+        lens_s = len(s)
+        if lens_s < 3:
+            return s[lens_s-1]
+        else:
+            return s[lens_s-3]
+    """
+    
+    """2.使用三个变量，分别保存已经找到的前三个最大值。
+    并且建立更新优先级，第一值更新优先级最大，其次第
+    二值，最后第三值。在更新第一值需要考虑之前找到的第
+    一值是否为第二值的结果，更新第二值需要考虑这个值是否
+    可能为第三值的结果。
+    """
+    def thirdMax(self, nums: List[int]) -> int:
+        lens = len(nums)
+        max1 = max2 = max3 = LONG_MIN = -2147483649
+        for i in range(lens):
+            if max3 >= nums[i] or max1 == nums[i] or max2 == nums[i]:
+                continue
+            max3 = nums[i]
+            if max2 < max3:
+                max2, max3 = max3, max2
+            if max1 < max2:
+                max1, max2 = max2, max1
+        if max3 == LONG_MIN:
+            return max1
+        else:
+            return max3
