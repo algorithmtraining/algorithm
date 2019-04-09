@@ -1,0 +1,19 @@
+class Solution:
+    def findDisappearedNumbers(self, nums: List[int]) -> List[int]:
+        """集合求差，时间复杂度不满足要求
+        lens = len(nums)
+        s1 = set()
+        for i in range(1,lens+1):
+            s1.add(i)
+        s2 = set(nums)
+        return sorted(list(s1 - s2))
+        """
+        #将出现过的数作为下标，数组对应值改为负
+        lens = len(nums)
+        result = []
+        for num in nums:
+            nums[abs(num)-1] = -abs(nums[abs(num)-1])
+        for i in range(lens):
+            if nums[i] > 0:
+                result.append(i+1)
+        return result
