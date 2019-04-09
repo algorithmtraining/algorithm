@@ -1,5 +1,6 @@
 class Solution {
-    public int[] intersection(int[] nums1, int[] nums2) {
+    public int[] intersection(int[] nums1, int[] nums2) { //Runtime: 2 ms, faster than 97.53% of Java online submissions for Intersection of Two Arrays.
+                                                         //Memory Usage: 38.6 MB, less than 5.09% of Java online submissions for Intersection of Two Arrays.
         Map <Integer,Integer> map1 = new HashMap<>();
          Map <Integer,Integer> map2= new HashMap<>();
       int[] arraylist = new int[nums2.length]; 
