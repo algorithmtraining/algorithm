@@ -49,3 +49,17 @@ class Solution:
         nums = set(nums)
         diffs = [x - k for x in nums]
         return sum([1 for x in diffs if x in nums])
+        """
+        class Solution:
+            def findPairs(self, nums: List[int], k: int) -> int:
+                if k < 0:
+                    return 0
+                store = set()
+                result = set()
+                for num in nums:
+                    if num + k in store:
+                        result.add(num + k)
+                    if num - k in store:
+                        result.add(num)
+                    store.add(num)
+                return len(result)
