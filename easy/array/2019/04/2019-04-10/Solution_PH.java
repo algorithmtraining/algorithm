@@ -1,4 +1,5 @@
-class Solution {
+class Solution { //Runtime: 3 ms, faster than 89.81% of Java online submissions for Max Consecutive Ones.
+                   //Memory Usage: 39.8 MB, less than 24.42% of Java online submissions for Max Consecutive Ones.
     public int findMaxConsecutiveOnes(int[] nums) {
         
         int lastcount =0;
