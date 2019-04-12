@@ -1,0 +1,12 @@
+class Solution:
+    def arrayPairSum(self, nums: List[int]) -> int:
+        """1. 排序，奇数位求和
+        nums = sorted(nums)
+        n = nums[::2]  #list[0::2 ] 就是取奇数位  list[1::2] 取偶数位
+        result = 0
+        for i in n:
+            result += i
+        return result
+        """
+        nums.sort()
+        return sum(nums[0::2])
