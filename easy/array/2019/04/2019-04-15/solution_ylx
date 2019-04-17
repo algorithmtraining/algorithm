@@ -1,0 +1,11 @@
+class Solution:
+    def canPlaceFlowers(self, flowerbed: List[int], n: int) -> bool:
+        count = 1
+        res = 0
+        for i in range(len(flowerbed)):
+            if flowerbed[i] == 0:
+                count += 1
+            else:
+                res += (count-1)//2
+                count = 0
+        return (res + count//2) >= n

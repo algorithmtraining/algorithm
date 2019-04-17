@@ -1,0 +1,14 @@
+class Solution:
+    def findUnsortedSubarray(self, nums: List[int]) -> int:
+        n = sorted(nums)
+        if n == nums:
+            return 0
+        for i in range(len(nums)):
+            if n[i] != nums[i]:
+                left = i
+                break
+        for i in range(len(nums)-1, -1, -1):
+            if n[i] != nums[i]:
+                right = i
+                break
+        return right-left+1
