@@ -1,0 +1,18 @@
+class Solution:
+    def maximumProduct(self, nums: List[int]) -> int:
+        """
+        nums1 = nums.copy()
+        a1 = max(nums)
+        nums.remove(a1)
+        a2 = max(nums)
+        nums.remove(a2)
+        a3 = max(nums)
+
+        b1 = min(nums1)
+        nums1.remove(b1)
+        b2 = min(nums1)
+
+        return max(a1*a2*a3, b1*b2*a1)
+        """
+        a, b = heapq.nlargest(3, nums), heapq.nsmallest(2, nums)
+        return max(a[0] * a[1] * a[2], b[0] * b[1] * a[0])
