@@ -1,0 +1,52 @@
+package leetcode;
+
+public class problem581 {
+	public static void main(String[] args) {
+		problem581 p=new problem581();
+		int[] a=new int[] {2,6,4,8,10,9,15};
+		System.out.print(p.findUnsortedSubarray(a));
+	}
+	public int findUnsortedSubarray(int[] nums) {
+		int zuo=-1;
+		int you=nums.length;
+		int max=nums[nums.length-1];
+		int min=nums[0];
+		for (int i = 1; i < nums.length; i++) {
+			if (i==nums.length-1) {
+				return 0;
+			}
+			
+			if (nums[i]<min) {
+				zuo=i;
+				break;
+			}	
+			min=Math.min(min, nums[i]);
+		}
+		for (int i = nums.length-2; i > -1; i--) {
+			if (i==0) {
+				return 0;
+			}
+			
+			if (nums[i]>max) {
+				you=i;
+				break;
+			}
+			max=Math.max(max,nums[i] );
+			
+		}
+		return you-zuo+1;
+	}
+	
+	public int findUnsortedSubarray1(int[] A) {
+	    int n = A.length, beg = -1, end = -2, min = A[n-1], max = A[0];
+	    for (int i=1;i<n;i++) {
+	      max = Math.max(max, A[i]);
+	      min = Math.min(min, A[n-1-i]);
+	      if (A[i] < max) end = i;
+	      if (A[n-1-i] > min) beg = n-1-i; 
+	    }
+	    return end - beg + 1;
+	}
+	
+	
+}
