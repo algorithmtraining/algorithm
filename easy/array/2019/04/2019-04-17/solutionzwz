@@ -1,0 +1,51 @@
+package leetcode;
+
+import java.util.concurrent.Exchanger;
+
+public class problem628 {
+	/* 自己写的有错误，没有包含负数的情况 */
+	public int maximumProduct(int[]nums) {
+		
+		for (int i = 3; i < nums.length; i++) {
+			int temp=Math.min(nums[0], Math.min(nums[1], nums[2]));
+			if(temp<nums[i]) {
+				if (nums[0]==temp) {
+					nums[0]=nums[i];
+				}else if (nums[1]==temp) {
+					nums[1]=nums[i];
+				}else {
+					nums[2]=nums[i];
+				}
+			}
+				
+		}
+		return (nums[0]*nums[1]*nums[2]);
+	}
+	
+	/* 正解 */
+	public int maximumProduct1(int[] nums) {
+		int max1=Integer.MIN_VALUE,max2=Integer.MIN_VALUE,max3=Integer.MIN_VALUE,min1=Integer.MAX_VALUE,min2=Integer.MAX_VALUE;
+		for (int n : nums) {
+			if (n>max1) {
+				max3=max2;
+				max2=max1;
+				max1=n;
+			}else if (n>max2) {
+				max3=max2;
+				max2=n;
+			}else if (n>max3) {
+				max3=n;
+			}
+			if (n<min1) {
+				min2=min1;
+				min1=n;
+			}else if (n<min2) {
+				min2=n;
+			}
+		}
+			return Math.max(max1*max2*max3,max1*min1*min2);
+		}
+		
+	
+	
+	
