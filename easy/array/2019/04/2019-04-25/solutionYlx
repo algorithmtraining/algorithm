@@ -1,0 +1,23 @@
+class Solution:
+    def hasGroupsSizeX(self, deck: List[int]) -> bool:
+        def gcd(x, y):
+            while (y != 0):
+                x, y = y, x % y
+            return x
+
+        if len(deck) < 2:
+            return False
+        m = {}
+        check = []
+        for i in range(len(deck)):
+            if deck[i] not in m:
+                m[deck[i]] = 1
+            else:
+                m[deck[i]] += 1
+        for key in m:
+            check.append(m[key])
+
+        resgcd = check[0]
+        for i in range(1, len(check)):
+            resgcd = gcd(resgcd, check[i])
+        return resgcd > 1
