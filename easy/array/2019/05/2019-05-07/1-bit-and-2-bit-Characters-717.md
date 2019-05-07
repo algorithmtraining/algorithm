@@ -1,25 +1,26 @@
-### 题号 697
+### 题号 717
 
 ### 题目
 
-Given a non-empty array of non-negative integers nums, the degree of this array is defined as the maximum frequency of any one of its elements.
+We have two special characters. The first character can be represented by one bit 0. The second character can be represented by two bits (10 or 11).
 
-Your task is to find the smallest possible length of a (contiguous) subarray of nums, that has the same degree as nums.
+Now given a string represented by several bits. Return whether the last character must be a one-bit character or not. The given string will always end with a zero.
 
     Example 1:
-    Input: [1, 2, 2, 3, 1]
-    Output: 2
+    Input:
+    bits = [1, 0, 0]
+    Output: True
     Explanation:
-    The input array has a degree of 2 because both elements 1 and 2 appear twice.
-    Of the subarrays that have the same degree:
-    [1, 2, 2, 3, 1], [1, 2, 2, 3], [2, 2, 3, 1], [1, 2, 2], [2, 2, 3], [2, 2]
-    The shortest length is 2. So return 2.
+    The only way to decode it is two-bit character and one-bit character. So the last character is one-bit character.
     Example 2:
-    Input: [1,2,2,3,1,4,2]
-    Output: 6
-    Note:
+    Input:
+    bits = [1, 1, 1, 0]
+    Output: False
+    Explanation:
+    The only way to decode it is two-bit character and two-bit character. So the last character is NOT one-bit character.
+Note:
 
-nums.length will be between 1 and 50,000.
-nums[i] will be an integer between 0 and 49,999.
+    1 <= len(bits) <= 1000.
+    bits[i] is always 0 or 1.
 
 ### 标签 ```Array```
