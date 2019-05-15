@@ -7,7 +7,8 @@ Given an grid of integers, how many 3 x 3 "magic square" subgrids are there?  (E
 Example 1:
 
 
-Input: [[4,3,8,4],
+Input: 
+        [[4,3,8,4],
 
         [9,5,1,9],
         
