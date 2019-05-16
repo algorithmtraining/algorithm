@@ -1,0 +1,10 @@
+class Solution:
+    def isToeplitzMatrix(self, matrix: List[List[int]]) -> bool:
+        row = len(matrix)
+        column = len(matrix[0])
+        if row == 1 or column == 1:
+            return True
+        for i in range(row-1):
+            if matrix[i][:-1] != matrix[i+1][1:]:
+                return False
+        return True
