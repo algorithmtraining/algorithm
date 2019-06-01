@@ -1,0 +1,15 @@
+package leetcode;
+
+public class problem867 {
+	public int[][] transpose(int[][]A){
+		int a=A.length;
+		int b=A[0].length;
+		int[][]B= new int[b][a];
+		for (int j = 0; j < b; j++) {
+			for (int i = 0; i < a; i++) {
+				B[j][i]=A[i][j];
+			}
+		}
+		return B;
+	}
+}
