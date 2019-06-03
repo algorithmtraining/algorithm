@@ -1,0 +1,38 @@
+package leetcode;
+
+public class problem849 {
+	public int maxDistToClosest(int[] seats) {
+		int max=1;
+		int tempmax=1;
+		for (int i = 0; i < seats.length; i++) {
+			if (seats[i]==1) {
+				max=(tempmax>max)?tempmax:max;
+				tempmax=1;
+			}else {
+				tempmax++;
+			}
+		}
+		if(seats[seats.length-1]==0) {
+			return tempmax-1>max/2?tempmax-1:max/2;
+		}else {
+			return max/2;
+		}
+		
+	}
+	/* 官方题解 */
+	public int maxDistToClosest1(int[] seats) {
+		int i,j,res=0,n=seats.length;
+		for (i=j=0;j<n;++j) {
+			if (seats[j]==1) {
+				if (seats[i]==1) {
+					res=Math.max(res, (j-i+1)/2);
+					i=j+1;
+				}else {
+					res=j;
+				}
+			}
+		}
+		res=Math.max(res,n-i);
+		return res;
+	}
+}
