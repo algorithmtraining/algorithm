@@ -1,0 +1,44 @@
+package leetcode;
+
+import java.util.HashSet;
+import java.util.stream.IntStream;
+
+public class problem888 {
+	public static void main(String[] args) {
+		problem888 p = new problem888();
+		System.out.println(p.fairCandySwap(new int[] {1,1}, new int[] {2,2}));
+	}
+	public int[] fairCandySwap(int[] A,int[] B) {
+		
+		int suma=0,sumb=0;
+		for (int i = 0; i < A.length; i++) {
+			suma=A[i]+suma;
+		}
+		for (int i = 0; i < B.length; i++) {
+			sumb+=B[i]+sumb;
+		}
+		for (int i = 0; i < A.length; i++) {
+			for (int j = 0; j < B.length; j++) {
+				if (suma-A[i]+B[j]==sumb+A[i]-B[j]) {
+					return new int[] {A[i],B[j]};
+				}
+			}			
+		}
+		return null;
+	}
+	
+	/* 最佳题解,用了has算法 */
+	public int[] fairCandySwap1(int[] A,int[] B) {
+		int dif=(IntStream.of(A).sum()-IntStream.of(B).sum())/2;//用stream来处理数组和，方便
+		HashSet<Integer> S=new HashSet<Integer>();//用hashset来处理循环，减少时间复杂度
+		for (int a : A) {//以后可以用foreach
+			S.add(a);
+		}
+		for (int b : B) {
+			if (S.contains(b+dif)) {
+				return new int[] {b+dif,b};
+			}
+		}
+		return null;
+	}
+}
