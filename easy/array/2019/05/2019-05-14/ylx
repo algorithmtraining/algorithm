@@ -1,0 +1,22 @@
+class Solution:
+    def largeGroupPositions(self, S: str) -> List[List[int]]:
+        if len(S) < 3:
+            return []
+        l = 0
+        r = 1
+        res = []
+        count = 1
+        while l < len(S) and r < len(S):
+            if S[l] == S[r]:
+                count += 1
+                r += 1
+                if r == len(S) and count >= 3:
+                    res.append([l,r-1])
+            else:
+                if count >= 3:
+                    res.append([l,r-1])
+                else:
+                    l = r
+                    r += 1
+                count = 1
+        return res
