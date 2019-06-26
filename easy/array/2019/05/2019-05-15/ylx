@@ -1,0 +1,28 @@
+class Solution:
+    def numMagicSquaresInside(self, grid: List[List[int]]) -> int:
+        def judge(matrix):
+            values = [i for l in matrix for i in l]
+            for i in range(1, 10):
+                if i not in values:
+                    return 0
+            for m in matrix:
+                if sum(m) != 15: return 0
+            for i in range(3):
+                if sum([m[i] for m in matrix]) != 15:
+                    return 0
+            if matrix[0][0] + matrix[2][2] != 10: return 0
+            if matrix[0][2] + matrix[2][0] != 10: return 0
+            return 1
+
+        if len(grid) < 3 or len(grid[0]) < 3:
+            return 0
+        res = 0
+        for i in range(1, len(grid)-1):
+            for j in range(1, len(grid[0])-1):
+                if grid[i][j] == 5:
+                    matrix = [grid[i-1][j-1:j+2],
+                              grid[i][j-1:j+2],
+                              grid[i+1][j-1:j+2]]
+                    if judge(matrix):
+                        res += 1
+        return res
