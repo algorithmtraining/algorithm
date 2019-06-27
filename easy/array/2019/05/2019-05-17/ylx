@@ -1,0 +1,10 @@
+class Solution:
+    def transpose(self, A: List[List[int]]) -> List[List[int]]:
+        r = len(A)
+        c = len(A[0])
+        res = []
+        for i in range(c):
+            res.append([])
+            for j in range(r):
+                res[i].append(A[j][i])
+        return res
