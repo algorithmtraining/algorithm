@@ -1,0 +1,20 @@
+class Solution {
+    public List<String> commonChars(String[] A) {
+        int a = 0;
+		List<String> list = new ArrayList<String>();
+		for (int i = 0; i < A[0].length(); i++) {
+			for (int j = 1; j < A.length; j++) {
+				if (A[j].indexOf(A[0].charAt(i)) == -1) {
+					a = 1;
+					break;
+				}else
+                    A[j] = A[j].substring(0,A[j].indexOf(A[0].charAt(i))) + A[j].substring(A[j].indexOf(A[0].charAt(i))+1);
+			}
+			if (a == 0) {
+				list.add(String.valueOf(A[0].charAt(i))); 
+			} else
+				a = 0;
+		}
+		return list;
+    }
+}
