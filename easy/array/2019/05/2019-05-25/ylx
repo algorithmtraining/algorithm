@@ -1,0 +1,15 @@
+class Solution:
+    def validMountainArray(self, A: List[int]) -> bool:
+        if len(A) < 3:
+            return False
+        M = max(A)
+        Mindex = A.index(M)
+        if M == A[0] or M == A[len(A)-1]:
+            return False
+        for i in range(1, Mindex+1):
+            if A[i] <= A[i-1]:
+                return False
+        for j in range(Mindex+1, len(A)):
+            if A[j] >= A[j-1]:
+                return False
+        return True
