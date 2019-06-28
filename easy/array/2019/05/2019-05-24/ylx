@@ -1,0 +1,26 @@
+class Solution:
+    def sortArrayByParityII(self, A: List[int]) -> List[int]:
+        def xmerge(a, b):
+            alen, blen = len(a), len(b)
+            mlen = min(alen, blen)
+            for i in range(mlen):
+                yield a[i]
+                yield b[i]
+
+            if alen > blen:
+                for i in range(mlen, alen):
+                    yield a[i]
+            else:
+                for i in range(mlen, blen):
+                    yield b[i]
+
+        ji = []
+        ou = []
+        for num in A:
+            if num % 2 == 1:
+                ji.append(num)
+            else:
+                ou.append(num)
+
+        res = [i for i in xmerge(ou, ji)]
+        return res
