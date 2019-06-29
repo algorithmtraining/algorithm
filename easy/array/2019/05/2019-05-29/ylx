@@ -1,0 +1,18 @@
+class Solution:
+    def sumEvenAfterQueries(self, A: List[int], queries: List[List[int]]) -> List[int]:
+        sumEven = sum(num for num in A if num % 2 == 0)
+        res = []
+        for val, i in queries:
+            if A[i] & 1 == 0 and val & 1 == 0:
+                A[i] += val
+                sumEven += val
+            elif A[i] & 1 == 0 and val & 1 == 1:
+                sumEven -= A[i]
+                A[i] += val
+            elif A[i] & 1 == 1 and val & 1 == 0:
+                A[i] += val
+            elif A[i] & 1 == 1 and val & 1 == 1:
+                A[i] += val
+                sumEven += A[i]
+            res.append(sumEven)
+        return res
