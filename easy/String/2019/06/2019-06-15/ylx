@@ -1,0 +1,18 @@
+class Solution:
+    def countAndSay(self, n: int) -> str:
+        if n == 1:
+            return '1'
+        else:
+            str_now = ''
+            str_last = self.countAndSay(n - 1)
+            last1 = str_last[0]
+            temp = 0
+            for i in str_last:
+                if i == last1:
+                    temp += 1
+                else:
+                    str_now += str(temp) + last1
+                    last1 = i
+                    temp = 1
+            str_now += str(temp) + last1
+            return str_now
