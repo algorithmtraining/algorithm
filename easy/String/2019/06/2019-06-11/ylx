@@ -1,0 +1,13 @@
+class Solution:
+    def countSegments(self, s: str) -> int:
+        if s == '' or ''.join(set(s)) == ' ':
+            return 0
+        if s[0] == ' ':
+            res = 0
+        else:
+            res = 1
+        for i in range(1, len(s)):
+            if s[i] != '' and s[i] != ' ' and s[i-1] == ' ':
+                #print(s[i])
+                res += 1
+        return res
