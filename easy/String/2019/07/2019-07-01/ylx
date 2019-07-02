@@ -1,0 +1,35 @@
+class Solution:
+    def canConstruct(self, ransomNote: str, magazine: str) -> bool:
+        """
+        l1 = list(ransomNote)
+        l2 = list(magazine)
+        s1 = {}
+        s2 = {}
+        for n in l1:
+            if n not in s1:
+                s1[n] = 1
+            else:
+                s1[n] += 1
+        for n in l2:
+            if n not in s2:
+                s2[n] = 1
+            else:
+                s2[n] += 1
+        for key in s1.keys():
+            if key not in s2.keys():
+                return False
+            else:
+                if s1[key] > s2[key]:
+                    return False
+        return True
+        """
+        for i in set(ransomNote):
+            if not i in magazine or ransomNote.count(i) > magazine.count(i):
+                return False
+        return True
+
+if __name__ == '__main__':
+    y = Solution()
+    r = "aa"
+    m = "aabb"
+    print(y.canConstruct(r, m))
