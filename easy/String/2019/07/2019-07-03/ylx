@@ -1,0 +1,25 @@
+class Solution:
+    def reorderLogFiles(self, logs):
+
+        nums = []
+        strs = []
+
+        for i in range(len(logs)):
+            logs[i] = logs[i].split()
+            if logs[i][1].isdigit():
+                nums.append(logs[i])
+            else:
+                strs.append(logs[i])
+
+        strs.sort(key = lambda x: (x[1:], x[0]))
+
+        res = strs + nums
+        for i in range(len(res)):
+            res[i] = ''.join([x + ' ' for x in res[i]])[:-1]
+        return res
+
+if __name__ == '__main__':
+    y = Solution()
+    logs = ["a1 9 2 3 1","g1 act car","zo4 4 7","ab1 off key dog","a8 act zoo","a2 act car"]
+    print(y.reorderLogFiles(logs))
+
