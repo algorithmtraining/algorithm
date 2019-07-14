@@ -1,0 +1,32 @@
+package leetcode;
+
+public class SumEvenAfterQueries {
+    public int[] sumEvenAfterQueries(int[] A, int[][] queries) {
+        int[] answer = new int[queries.length];
+        int mid = 0;
+        for (int i = 0; i < A.length; i++) {
+            if (A[i] % 2 == 0)
+                mid += A[i];
+        }
+        for (int j = 0; j < queries.length; j++) {
+            int val = queries[j][0];
+            int index = queries[j][1];
+            if (val % 2 == 0) {
+                if (A[index] % 2 == 0) mid += val;
+            } else {
+                if (A[index] % 2 != 0) mid = mid + val + A[index];
+                else mid -= A[index];
+            }
+            A[index] += val;
+            answer[j] = mid;
+        }
+        return answer;
+    }
+    public static void main(String args[]){
+        int[] A = {1,2,3,4};
+        int[][] queries = {{1,0},{-3,1},{-4,0},{2,3}};
+        SumEvenAfterQueries sumEvenAfterQueries = new SumEvenAfterQueries();
+        int[] answer = sumEvenAfterQueries.sumEvenAfterQueries(A,queries);
+        System.out.println(answer);
+    }
+}
