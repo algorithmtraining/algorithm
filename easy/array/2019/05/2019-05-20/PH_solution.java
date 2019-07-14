@@ -1,5 +1,6 @@
-class Solution { //
-                 //
+class Solution { //Runtime: 18 ms, faster than 41.89% of Java online submissions for Fair Candy Swap.
+//Memory Usage: 40.6 MB, less than 93.62% of Java online submissions for Fair Candy Swap.
+                 
     public static int [] findbalance (int[] Big,int[] Small,int x){
          int result[] = new int[2];
          Map<Integer,Integer> map = new HashMap<>();
