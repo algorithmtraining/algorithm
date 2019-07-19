@@ -1,0 +1,19 @@
+package leetcode;
+
+public class SortArrayByParityII {
+    public int[] sortArrayByParityII(int[] A) {
+        int[] res = new int[A.length];
+        int k = 1;
+        int j = 0;
+        for (int i = 0; i < A.length; i++) {
+            if (A[i] % 2 == 0) {
+                res[j] = A[i];
+                j += 2;
+            }else{
+                res[k] = A[i];
+                k+=2;
+            }
+        }
+        return res;
+    }
+}
