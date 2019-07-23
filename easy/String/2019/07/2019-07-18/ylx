@@ -1,0 +1,30 @@
+class Solution:
+    def validPalindrome(self, s: str) -> bool:
+        """超时
+        if s == s[::-1]:
+            return True
+        else:
+            for i in range(len(s)):
+                #print(s[:i] + s[i+1:])
+                if (s[:i] + s[i+1:]) == (s[:i] + s[i+1:])[::-1]:
+                    return True
+        return False
+        """
+        if s == s[::-1]:
+            return True
+        else:
+            l, r = 0, len(s)-1
+            while l < r:
+                if s[l] == s[r]:
+                    l, r = l+1, r-1
+                else:
+                    a = s[l+1:r+1]
+                    b = s[l:r]
+                    return a == a[::-1] or b == b[::-1]
+
+if __name__ == '__main__':
+    y = Solution()
+    s = 'abca'
+    print(y.validPalindrome(s))
+
+
