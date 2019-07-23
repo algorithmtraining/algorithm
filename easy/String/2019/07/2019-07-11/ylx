@@ -1,0 +1,16 @@
+class Solution:
+    def reverseString(self, s: 'List[str]') -> None:
+        """
+        必须原地修改输入数组、使用 O(1) 的额外空间解决这一问题。
+        """
+        l, r = 0, len(s)-1
+        while l < r:
+            s[l], s[r] = s[r], s[l]
+            l += 1
+            r -= 1
+
+if __name__ == '__main__':
+    y = Solution()
+    s = ["h","e","l","l","o"]
+    y.reverseString(s)
+    print(s)
