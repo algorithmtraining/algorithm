@@ -1,0 +1,20 @@
+import Tree
+
+class Solution:
+    def tree2str(self, t: 'TreeNode') -> str:
+        if t is None:
+            return ""
+        l = r = ""
+        if t.left is not None or t.right is not None:
+            l = "(" + self.tree2str(t.left) + ")"
+            if t.right is not None:
+                r = "(" + self.tree2str(t.right) + ")"
+
+        return str(t.val) + l + r
+
+if __name__ == '__main__':
+    T = [1,2,3,'#',4]
+    root = Tree.listcreattree(None, T, 0)
+    Tree.printTree(root)
+    y = Solution()
+    print(y.tree2str(root))
