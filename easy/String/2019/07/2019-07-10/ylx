@@ -1,0 +1,29 @@
+class Solution:
+    def isValid(self, s):
+        """
+        :param s: str
+        :return: bool
+        """
+        stack = []
+        M = {')':'(', '}':'{', ']':'['}
+        for c in s:
+            if c not in M:
+                stack.append(c)
+            else:
+                temp = stack.pop() if stack else '#'
+                if temp != M[c]:
+                    return False
+        return not stack
+
+        #另一种思路
+        #while '{}' in s or '()' in s or '[]' in s:
+        #    s = s.replace('{}', '')
+        #    s = s.replace('[]', '')
+        #    s = s.replace('()', '')
+        #return s == ''
+
+
+if __name__ == '__main__':
+    S = '(){}[]'
+    y = Solution()
+    print(y.isValid(S))
