@@ -1,0 +1,33 @@
+class Solution:
+    def longestCommonPrefix(self, strs):
+        """
+        编写一个函数来查找字符串数组中的最长公共前缀。如果不存在公共前缀，返回空字符串 ""。
+        :param strs: List[str]
+        :return: str
+        """
+        """方法一：利用max和min
+        if not strs:
+            return ""
+        max1 = max(strs)
+        min1 = min(strs)
+        for i, c in enumerate(min1):
+            if c != max1[i]:
+                return max1[:i]
+        return min1
+        """
+        if not strs:
+            return ""
+        l = list(map(set, zip(*strs)))#zip*解压为元组，map(set,)去重
+        res = ""
+        for x in l:
+            x = list(x)
+            if len(x) > 1:
+                break
+            res += x[0]
+        return res
+
+
+if __name__ == '__main__':
+    strs = ["flower","flow","flight"]
+    y = Solution()
+    print(y.longestCommonPrefix(strs))
