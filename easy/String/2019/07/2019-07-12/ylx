@@ -1,0 +1,17 @@
+class Solution:
+    def firstUniqChar(self, s: str) -> int:
+        smap = {}
+        for i in range(len(s)):
+            if s[i] not in smap:
+                smap[s[i]] = 1
+            else:
+                smap[s[i]] += 1
+        for i in range(len(s)):
+            if smap[s[i]] == 1:
+                return i
+        return -1
+
+if __name__ == '__main__':
+    y = Solution()
+    s = ""
+    print(y.firstUniqChar(s))
