@@ -1,0 +1,39 @@
+class Solution:
+    def countBinarySubstrings(self, s: str) -> int:
+        """
+        n0, n1, res = 0, 0, 0
+        for i in range(len(s)):
+            if s[i] == '0':
+                if s[i-1] and s[i-1] == '1':
+                    n0 = 0
+                n0 += 1
+                if n0 <= n1:
+                    res += 1
+                #print(n0, n1, res)
+            else:
+                if s[i-1] and s[i-1] == '0':
+                    n1 = 0
+                n1 += 1
+                if  n1 <= n0:
+                    res += 1
+                #print(n0, n1, res)
+        return res
+        """
+        l, c, res = 0, 0, 0
+        temp = s[0]
+        for i in s:
+            if i == temp:
+                c += 1
+                if c <= l:
+                    res += 1
+            else:
+                l = c
+                c = 1
+                temp = i
+                res += 1
+        return res
+
+if __name__ == '__main__':
+    y = Solution()
+    s = "10101"
+    print(y.countBinarySubstrings(s))
