@@ -1,0 +1,32 @@
+class Solution:
+    def rotatedDigits(self, N: int) -> int:
+        """
+        def goodnum(n):
+            M = {'2':'5', '5':'2', '6':'9', '9':'6'}
+            res = []
+            for i in list(str(n)):
+                if i == '0' or i == '1' or i == '8':
+                    res.append(i)
+                elif i in M:
+                    res.append(M[i])
+                else:
+                    return False
+            num = int("".join(res))
+            if num != n:
+                return True
+            return False
+
+        return sum(goodnum(i) for i in range(N+1))
+        """
+        s1 = [1, 8, 0]
+        s2 = [1, 8, 0, 6, 9, 2, 5]
+        def isGood(x):
+            s = set([int(i) for i in str(x)])
+            return s.issubset(s2) and not s.issubset(s1)
+        return sum(isGood(i) for i in range(N + 1))
+
+if __name__ == '__main__':
+    y = Solution()
+    N = 857
+    print(y.rotatedDigits(N))
+
