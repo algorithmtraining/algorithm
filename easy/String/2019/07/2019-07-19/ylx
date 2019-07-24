@@ -1,0 +1,32 @@
+class Solution:
+    def repeatedStringMatch(self, A: str, B: str) -> int:
+        """
+        if not set(B).issubset(set(A)):
+            return -1
+        if A.find(B) != -1:
+            return 1
+        i = 1
+        temp = A
+        while len(temp) <= 10000:
+            temp = A * i
+            #print(temp)
+            if B in temp:
+                return i
+            i += 1
+        return -1
+        """
+        if not set(B).issubset(set(A)):
+            return -1
+        if A.find(B) != -1:
+            return 1
+        i = 1
+        temp = A
+        while len(temp) < len(B):
+            temp += A
+            i += 1
+            #print(temp)
+        if temp.find(B) != -1:
+            return i
+        if (temp+A).find(B) != -1:
+            return i + 1
+        return -1
