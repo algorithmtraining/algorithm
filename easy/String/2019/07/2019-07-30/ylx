@@ -1,0 +1,8 @@
+class Solution:
+    def numSpecialEquivGroups(self, A: 'List[str]') -> int:
+        return len({tuple(sorted(a[::2])+sorted(a[1::2])) for a in A}) #看不懂系列
+
+if __name__ == '__main__':
+    y = Solution()
+    A = ["abcd","cdab","adcb","cbad"]
+    print(y.numSpecialEquivGroups(A))
