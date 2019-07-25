@@ -1,0 +1,23 @@
+class Solution:
+    def toGoatLatin(self, S: str) -> str:
+        nochange = ['a', 'e', 'i', 'o', 'u',
+                    'A', 'E', 'I', 'O', 'U']
+        index = 1
+        res = []
+        for s in S.split():
+            if s[0] in nochange:
+                s += 'ma' + 'a'*index
+                #print(s)
+            else:
+                s = s[1:] + s[0] + 'ma' + 'a'*index
+                #print(s)
+            index += 1
+            res.append(s)
+        return " ".join(res)
+
+if __name__ == '__main__':
+    y = Solution()
+    S = "The quick brown fox jumped over the lazy dog"
+    print(y.toGoatLatin(S))
+
+
