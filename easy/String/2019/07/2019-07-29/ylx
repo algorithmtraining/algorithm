@@ -1,0 +1,28 @@
+class Solution:
+    def buddyStrings(self, A: str, B: str) -> bool:
+        if len(A) < 2 or len(B) < 2 or len(A) != len(B):
+            return False
+        count = 0
+        diff = []
+        if A == B:
+            for i in set(A):
+                if A.count(i) > 1:
+                    return True
+            return False
+        else:
+            for i in range(len(A)):
+                if A[i] != B[i]:
+                    count += 1
+                    if count > 2:
+                        return False
+                    diff.append(i)
+            if count == 2:
+                return A[diff[0]] == B[diff[1]] and A[diff[1]] == B[diff[0]]
+            return False
+
+if __name__ == '__main__':
+    y = Solution()
+    A = "ab"
+    B = "ab"
+    print(y.buddyStrings(A, B))
+
