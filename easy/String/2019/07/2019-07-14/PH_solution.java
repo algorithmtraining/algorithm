@@ -14,6 +14,6 @@ public class Solution {
         }
         if(carry != 0)
             result.append(carry);
-        return sb.reverse().toString();
+        return result.reverse().toString(); //先将StringBuilder逆转，再转换为字符串
     }
 }
