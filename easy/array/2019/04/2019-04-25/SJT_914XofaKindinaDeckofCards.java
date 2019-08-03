@@ -51,6 +51,7 @@ public class SJT_914XofaKindinaDeckofCards {
                 map.put(x,map.get(x)+1);
         }
         boolean canDiv;
+        ///?????????? i<=deck.length
         for(int i=2; i<=1000; i++)
         {
             canDiv = true;
@@ -68,5 +69,7 @@ public class SJT_914XofaKindinaDeckofCards {
     }
 }
 /*
-
+可以参考赵振的
+Runtime: 11 ms
+Memory Usage: 40 MB
  */
