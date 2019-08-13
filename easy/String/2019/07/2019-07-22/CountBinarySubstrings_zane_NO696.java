@@ -1,4 +1,4 @@
-package string;
+package String;
 
 /**
  * @author zane
