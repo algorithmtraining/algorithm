@@ -1,0 +1,16 @@
+class Solution:
+    def numUniqueEmails(self, emails: 'List[str]') -> int:
+        res = set()
+        for i in range(len(emails)):
+            l = emails[i][:emails[i].find('@')]
+            l = l.replace('.', '')
+            if l.find('+') != -1:
+                l = l[:l.find('+')]
+            r = emails[i][emails[i].find('@')+1:]
+            res.add(l + '@' + r)
+        return len(res)
+
+if __name__ == '__main__':
+    y = Solution()
+    emails = ["test.email+alex@leetcode.com","test.e.mail+bob.cathy@leetcode.com","testemail+david@lee.tcode.com"]
+    print(y.numUniqueEmails(emails))
