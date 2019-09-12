@@ -1,6 +1,9 @@
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @author zane
+ */
 public class SJT10_1TwoSum {
     //思路：用map存储当前数组元素及其索引作为下一个查找的另一半，若在map中再次找到（另一半），resolved
     public int[] twoSum(int[] nums, int target) {
